@@ -1,0 +1,24 @@
+@import "../../variables";
+
+.home {
+  color: $primary;
+  display: flex;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url('../../assets/img/back.jpg');
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  .intro {
+    margin: auto;
+    padding: 0 20px;
+    h1, h2 {
+      font-weight: bold;
+    }
+    .search-wrapper {
+      margin-top: 20px;
+    }
+  }
+}

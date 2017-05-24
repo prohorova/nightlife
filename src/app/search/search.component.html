@@ -1,0 +1,41 @@
+<div class="wrapper">
+  <div class="row no-gutters">
+    <div class="col-sm-5 col-md-5 sidebar" >
+      <div class="search-wrapper">
+        <app-search-form [location]="location"
+                         (searchCompleted)="onSearchCompleted($event)">
+        </app-search-form>
+      </div>
+      <div class="sidebar-content" >
+        <ul class="list-group" id="bars" #list>
+          <!--<li *ngIf="!bars.length">Nothing was found. Try to change your request.</li>-->
+          <li class="list-group-item"
+              *ngFor="let bar of bars; let i = index"
+              [attr.id]="'bar' + i"
+              [class.selected]="isSelected(bar)"
+              (click)="selectBar(bar)">
+            <div class="row">
+              <div class="col-auto">
+                <div [style.background-image]="getImage(bar.image_url)" class="thumb"></div>
+              </div>
+              <div class="col">
+                <h3>{{bar.name}}</h3>
+                <p><app-rating [rating]="bar.rating" [maxRating]="5"></app-rating></p>
+                <p>{{bar.price}} <span class="divider">|</span> {{getCategories(bar)}}</p>
+                <p>{{bar.location.display_address.join(', ')}}</p>
+                <p>Phone: {{bar.phone}}</p>
+                <button type="button" class="btn btn-primary">I'm going!</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-7 col-md-7 hidden-xs-down map-wrap">
+      <app-map [places]="bars"
+               [selectedPlace]="selectedBar"
+               (selectPlace)="onSelectPlace($event)">
+      </app-map>
+    </div>
+  </div>
+</div>

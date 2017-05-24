@@ -1,0 +1,9 @@
+<div class="rating" [style.width]="getContainerWidth(rating)"
+     placement="right" [ngbTooltip]="rating + ' star rating'">
+  <span class="star"  *ngFor="let star of stars">
+    <img [style.width]="starSize + 'px'"
+         [style.height]="starSize + 'px'"
+         [style.marginRight]="starMargin + 'px'"
+         src="../../../assets/img/star.svg">
+  </span>
+</div>

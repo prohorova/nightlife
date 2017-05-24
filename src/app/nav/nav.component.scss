@@ -1,0 +1,42 @@
+@import '../../variables';
+
+.navbar {
+  color: $white;
+  font-weight: bold;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  .navbar-brand {
+    font-size: 26px;
+    font-family: 'Roboto Slab', sans-serif;
+    flex: 1;
+    &:hover, &:visited, &:active {
+      color: $primary;
+    }
+    img {
+      height: 26px;
+      width: 26px;
+    }
+  }
+  &.bg-faded {
+    .navbar-brand {
+      &:hover, &:visited, &:active {
+        color: $bg;
+      }
+    }
+    .divider {
+      color: $gray-lighter;
+    }
+  }
+  .navbar-nav {
+    flex-direction: row;
+  }
+  .divider {
+    color: $white;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+

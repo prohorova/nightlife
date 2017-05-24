@@ -1,26 +1,16 @@
-const express = require('express');
-const path = require('path');
-const http = require('http');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
 
-const app = express();
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+var mongoose = require('./server/config/mongoose.js');
+var express = require('./server/config/express.js');
+var passport = require('./server/config/passport.js');
 
-app.use(morgan('dev'));
+var port = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, 'dist')));
+var db = mongoose();
+var app = express();
+var passport = passport();
 
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, './dist/index.html'));
-});
-
-const port = process.env.PORT || '3000';
-
-const server = http.createServer(app);
-
-server.listen(port, function() {
-  console.log('Server running on port ' + port);
+app.listen(port, function() {
+  console.log('Server listening on port ' + port);
 });

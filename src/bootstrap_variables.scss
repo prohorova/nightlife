@@ -1,0 +1,15 @@
+@import './variables';
+
+$brand-primary:                     $accent !default;
+
+$body-color:                        $white !default;
+$btn-primary-color:                 $white !default;
+$btn-primary-bg:                    $brand-primary !default;
+$btn-primary-border:                $btn-primary-bg !default;
+$input-border-color:                lighten($brand-primary, 25%) !default;
+$input-border-focus:                $brand-primary !default;
+
+$navbar-light-color:                $bg !default;
+$navbar-light-hover-color:          lighten($bg, 10%);
+$navbar-light-active-color:         lighten($bg, 10%);
+$navbar-light-disabled-color:       lighten($bg, 10%);

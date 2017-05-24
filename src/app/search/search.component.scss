@@ -1,0 +1,53 @@
+@import '../../variables';
+
+.wrapper {
+  padding-top: 63px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  .row {
+    height: 100%;
+    .sidebar {
+      color: $white;
+      display: flex;
+      flex-direction: column;
+      padding: 0 10px;
+      .search-wrapper {
+        padding: 10px 0;
+      }
+      .sidebar-content {
+        flex: 0 1 auto;
+        overflow-y: auto;
+        .list-group {
+          .list-group-item {
+            background: none;
+            border-width: 1px;
+            border-style: solid none solid none;
+            border-color: rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            &.selected {
+              background: lighten($bg, 5%);
+            }
+            .thumb {
+              background-color: $gray-dark;
+              background-size: cover;
+              background-position: center center;
+              border-radius: 0.25rem;
+              padding: 0 10px;
+              height: 100px;
+              width: 100px;
+            }
+            .divider {
+              color: $gray-light;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+

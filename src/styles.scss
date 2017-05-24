@@ -1,1 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+@import './variables';
+@import './bootstrap_variables';
+@import '../node_modules/bootstrap/scss/bootstrap-reboot';
+@import '../node_modules/bootstrap/scss/bootstrap-grid';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: $bg;
+  color: $gray-dark;
+  font-family: 'Roboto', 'Helvetica neue', Arial, sans-serif;
+}
+
+a {
+  color: $primary;
+  &:active, &:visited {
+    color: $primary;
+  }
+  &:hover {
+    color: $accent;
+  }
+}
+
+.bg-faded {
+  background-color: $white;
+}
+
+button .icon {
+  height: 16px;
+  width: 16px;
+}
+
+// marker clusterer
+.cluster0 {
+  background-size: cover;
+}
+
+// loader
+.loader {
+  height: 100%;
+  width: 100%;
+  animation: rotate 0.8s infinite linear;
+  border: 8px solid #fff;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+button .loader {
+  height: 20px;
+  width: 20px;
+  animation: rotate 0.8s infinite linear;
+  border: 3px solid #fff;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+.loader-main {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+}
+
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}
+
+// scrollbar
+
+::-webkit-scrollbar {
+    width: 10px;
+  -webkit-border-radius: 2.5rem;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 2.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $gray-light;
+  outline: 1px solid slategrey;
+  -webkit-border-radius: 2.5rem;
+}
+
+
+
+

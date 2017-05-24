@@ -1,0 +1,12 @@
+<form [formGroup]="searchForm" class="form-inline" (submit)="submit(searchForm.value)">
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Enter your location"
+           [formControl]="searchForm.controls['location']">
+    <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary">
+          <img class="icon" src="../../assets/img/search.svg" *ngIf="!loading">
+          <div class="loader" *ngIf="loading"></div>
+        </button>
+      </span>
+  </div>
+</form>
