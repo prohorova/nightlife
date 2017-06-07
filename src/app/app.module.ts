@@ -12,7 +12,7 @@ import { routes } from './app.routes';
 import { SearchComponent } from './search/search.component';
 import { MapComponent } from './map/map.component';
 import { MapService } from './core/map.service';
-import { SearchService } from './core/search.service';
+import { BarsService } from './core/bars.service';
 import { AuthService } from './core/auth.service';
 import { RatingComponent } from './shared/rating/rating.component';
 import { SlimScrollModule } from "ng2-slimscroll";
@@ -37,7 +37,7 @@ import { SearchFormComponent } from './shared/search-form/search-form.component'
     NgbModule.forRoot(),
     SlimScrollModule
   ],
-  providers: [MapService, SearchService, AuthService],
+  providers: [MapService, BarsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

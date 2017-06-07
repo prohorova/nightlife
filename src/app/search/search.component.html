@@ -8,7 +8,7 @@
       </div>
       <div class="sidebar-content" >
         <ul class="list-group" id="bars" #list>
-          <!--<li *ngIf="!bars.length">Nothing was found. Try to change your request.</li>-->
+          <li *ngIf="location && (!this.bars || !this.bars.length)">Nothing was found. Try to change your request.</li>
           <li class="list-group-item"
               *ngFor="let bar of bars; let i = index"
               [attr.id]="'bar' + i"
@@ -24,7 +24,11 @@
                 <p>{{bar.price}} <span class="divider">|</span> {{getCategories(bar)}}</p>
                 <p>{{bar.location.display_address.join(', ')}}</p>
                 <p>Phone: {{bar.phone}}</p>
-                <button type="button" class="btn btn-primary">I'm going!</button>
+                <p><a [href]="bar.url" class="yelp-link" target="_blank">View on yelp</a></p>
+                <p *ngIf="bar.comers && bar.comers.length > 0"><i>{{bar.comers.length}} going so far</i></p>
+                <button type="button" class="btn btn-primary" *ngIf="!user" (click)="login()">Log in to make a reservation</button>
+                <button type="button" class="btn btn-primary" *ngIf="user && !isGoing(bar)" (click)="go(bar, i)">I'm going</button>
+                <button type="button" class="btn btn-outline-primary" *ngIf="user && isGoing(bar)" (click)="go(bar, i)">I can't go</button>
               </div>
             </div>
           </li>

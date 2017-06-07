@@ -6,8 +6,6 @@ var morgan = require('morgan');
 var compress = require('compression');
 var passport = require('passport');
 
-var cors = require('cors');
-
 var config = require('./config.js');
 
 module.exports = function() {
@@ -31,14 +29,16 @@ module.exports = function() {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use(cors());
+  app.use(express.static('./dist'));
 
   require('../app/routes/router.js')(app);
 
-  app.use(express.static('./dist'));
+  app.get('/*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../../dist/index.html'));
+  });
 
   return app;
-}
+};
 
 
 

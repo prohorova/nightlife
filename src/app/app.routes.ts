@@ -4,7 +4,7 @@ import { SearchComponent } from './search/search.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'search', component: SearchComponent},
+  {path: 'bars', component: SearchComponent},
   {path: '**', pathMatch: 'full', redirectTo: '/'}
 ];
 

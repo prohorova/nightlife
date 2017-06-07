@@ -7,10 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
 @Injectable()
-export class SearchService {
-
-  location: string;
-  bars: any[];
+export class BarsService {
 
   constructor(private http: Http) { }
 
@@ -19,17 +16,23 @@ export class SearchService {
     return this.http.get(url)
       .map(res => res.json())
       .do(bars => {
-        this.location = location;
-        this.bars = bars;
+        sessionStorage.setItem('location', location);
+        sessionStorage.setItem('bars', JSON.stringify(bars));
       })
   }
 
+  go(barId: string) {
+    const url = `${environment.baseUrl}/go/${barId}`;
+    return this.http.get(url)
+      .map(res => res.json());
+  }
+
   getBars() {
-    return this.bars;
+    return JSON.parse(sessionStorage.getItem('bars') || '[]');
   }
 
   getLocation() {
-    return this.location;
+    return sessionStorage.getItem('location');
   }
 
 }

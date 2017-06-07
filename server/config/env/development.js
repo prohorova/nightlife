@@ -2,9 +2,9 @@ module.exports = {
   db: 'mongodb://localhost/nightlife',
   sessionSecret: 'devsecretkey',
   google: {
-    clientId: '581951908751-d052rb3d1bgcmbbqbbfobessdbi5oqni.apps.googleusercontent.com',
+    clientID: '581951908751-d052rb3d1bgcmbbqbbfobessdbi5oqni.apps.googleusercontent.com',
     clientSecret: '25e6REdfolzzPxsRGPuZs5E5',
-    callbackUrl: 'http://localhost:3000/auth/google/callback'
+    callbackURL: 'http://localhost:3000/auth/google/callback'
   },
   yelp: {
     clientID: 'VOfQHpYX0eJmHRobvOACNA',

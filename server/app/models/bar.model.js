@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var BarSchema = new Schema({
-  id: String,
+  yelpId: String,
   comers: [{type: Schema.ObjectId, ref: 'User'}]
 });
 

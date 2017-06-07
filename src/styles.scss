@@ -16,6 +16,7 @@ body {
 }
 
 a {
+  cursor: pointer;
   color: $primary;
   &:active, &:visited {
     color: $primary;

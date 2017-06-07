@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Router } from '@angular/router';
 import { AuthService } from '../core/auth.service';
 
 @Component({
@@ -9,9 +9,15 @@ import { AuthService } from '../core/auth.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private router: Router, private auth: AuthService) { }
+  user: any;
+  url: string;
 
-  ngOnInit() {}
+  constructor(private router: Router,
+              private auth: AuthService) { }
+
+  ngOnInit() {
+    this.getUser();
+  }
 
   getIcon() {
     return this.isLanding() ?
@@ -26,22 +32,14 @@ export class NavComponent implements OnInit {
     return 'navbar';
   }
 
-  isLanding() {
-    return this.router.url === '/';
-  }
-
-  login() {
-    this.auth.login().subscribe(() => {
-
+  getUser() {
+    this.auth.getUser().subscribe((user) => {
+      this.user = user;
     })
   }
 
-  isLoggedIn() {
-    return this.auth.isLoggedIn();
-  }
-
-  logout() {
-
+  isLanding() {
+    return this.router.url === '/';
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SearchService } from '../../core/search.service';
+import { BarsService } from '../../core/bars.service';
 
 @Component({
   selector: 'app-search-form',
@@ -15,7 +15,7 @@ export class SearchFormComponent implements OnInit {
   @Output() searchCompleted = new EventEmitter<any[]>();
 
   constructor(private fb: FormBuilder,
-              private search: SearchService) {
+              private barsService: BarsService) {
   }
 
   ngOnInit() {
@@ -26,10 +26,13 @@ export class SearchFormComponent implements OnInit {
 
   submit(searchForm) {
     this.loading = true;
-    this.search.fetchBars(searchForm.location)
+    this.barsService.fetchBars(searchForm.location)
       .subscribe((bars) => {
         this.loading = false;
         this.searchCompleted.next(bars);
+      }, (err) => {
+        console.log(err);
+        this.loading = false;
       })
   }
 

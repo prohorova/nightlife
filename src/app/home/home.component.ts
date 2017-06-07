@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   onSearchCompleted(bars) {
-    this.router.navigate(['/search']);
+    this.router.navigate(['/bars']);
   }
 
 }

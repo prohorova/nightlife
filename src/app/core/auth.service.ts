@@ -1,24 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Router } from '@angular/router';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
 
-  user: any;
+  constructor(private http: Http, private router: Router) {}
 
-  constructor(private http: Http) { }
-
-  login() {
-    return this.http.get(`${environment.baseUrl}/auth/google`)
+  getUser() {
+    return this.http.get(`${environment.baseUrl}/user`)
       .map(res => res.json())
-      .do((user) => {
-        this.user = user;
-      })
   }
 
-  isLoggedIn() {
-    return !!this.user;
+  getLoginLink() {
+    return `/auth/google?path=${this.router.url}`;
+  }
+
+  getLogoutLink() {
+    return `/logout?path=${this.router.url}`;
+  }
+
+  login() {
+    window.location.assign(this.getLoginLink());
   }
 
 }
