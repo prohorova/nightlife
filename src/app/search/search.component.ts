@@ -26,12 +26,12 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.bars = this.barsService.getBars();
     this.location = this.barsService.getLocation();
-    this.auth.getUser()
-      .subscribe((user) => {
+    this.auth.user
+      .subscribe(user => {
         this.user = user;
-      }, (err) => {
+      }, err => {
         console.log(err);
-    })
+      })
   }
 
   getCategories(bar: any) {

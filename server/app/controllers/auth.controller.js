@@ -12,7 +12,7 @@ exports.googleCallback = function(req, res) {
 
 exports.logout = function(req, res) {
   req.logout();
-  res.redirect(req.query.path);
+  res.send({success: true});
 };
 
 exports.checkAuth = function(req, res, next) {

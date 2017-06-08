@@ -16,7 +16,12 @@ export class NavComponent implements OnInit {
               private auth: AuthService) { }
 
   ngOnInit() {
-    this.getUser();
+    this.auth.user
+      .subscribe(user => {
+        this.user = user;
+      }, err => {
+        console.log(err);
+      })
   }
 
   getIcon() {
@@ -32,14 +37,12 @@ export class NavComponent implements OnInit {
     return 'navbar';
   }
 
-  getUser() {
-    this.auth.getUser().subscribe((user) => {
-      this.user = user;
-    })
-  }
-
   isLanding() {
     return this.router.url === '/';
+  }
+
+  logout() {
+    this.auth.logout();
   }
 
 }
