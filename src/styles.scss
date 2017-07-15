@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-  background: $bg url('./assets/img/back.jpg');
+  background: linear-gradient(lighten($bg, 25%), $bg);
   color: $gray-dark;
   font-family: 'Roboto', 'Helvetica neue', Arial, sans-serif;
 }
