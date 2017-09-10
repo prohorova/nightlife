@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var compress = require('compression');
 var passport = require('passport');
+var mongoose = require('mongoose');
+var MongoStore = require('connect-mongo')(session);
 
 var config = require('./config.js');
 
@@ -23,7 +25,8 @@ module.exports = function() {
   app.use(session({
     secret: config.sessionSecret,
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: new MongoStore({mongooseConnection: mongoose.connection})
   }));
 
   app.use(passport.initialize());
