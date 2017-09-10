@@ -5,18 +5,18 @@ module.exports = function(app) {
 
   // auth
 
-  app.get('/auth/google', auth.googleAuth);
+  app.get('/api/auth/google', auth.googleAuth);
 
-  app.get('/auth/google/callback', auth.googleCallback);
+  app.get('/api/auth/google/callback', auth.googleCallback);
 
-  app.get('/logout', auth.logout);
+  app.get('/api/logout', auth.logout);
 
-  app.get('/user', auth.getUser);
+  app.get('/api/user', auth.getUser);
 
   // bars
 
-  app.get('/search', bars.search);
+  app.get('/api/search', bars.search);
 
-  app.get('/go/:barId', auth.checkAuth, bars.go);
+  app.get('/api/go/:barId', auth.checkAuth, bars.go);
 
 };

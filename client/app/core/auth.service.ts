@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   getLoginLink() {
-    return `/auth/google?path=${this.router.url}`;
+    return `/api/auth/google?path=${this.router.url}`;
   }
 
   login() {
