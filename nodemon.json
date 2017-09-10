@@ -1,5 +1,4 @@
 {
 	"watch": ["server/**/*.js"],
-	"ignore": ["server/**/*.spec.ts"],
 	"exec": "node ./server/server.js"
 }
