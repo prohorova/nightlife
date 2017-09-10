@@ -12,13 +12,9 @@ Install dependencies
 
 `npm install`
 
-Run client
+Run development server
 
-`ng serve`
-
-Run server
-
-`npm start`
+npm run dev
 
 MongoDB is required on localhost, otherwise change config in
 
