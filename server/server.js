@@ -1,9 +1,9 @@
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-var mongoose = require('./server/config/mongoose.js');
-var express = require('./server/config/express.js');
-var passport = require('./server/config/passport.js');
+var mongoose = require('./config/mongoose.js');
+var express = require('./config/express.js');
+var passport = require('./config/passport.js');
 
 var port = process.env.PORT || 3000;
 
