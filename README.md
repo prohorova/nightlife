@@ -4,7 +4,7 @@ Nightlife coordination app. Part of [FCC](https://www.freecodecamp.org/challenge
 
 [Demo](https://nightlife26.herokuapp.com/)
 
-Client side of the project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+Client side was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
 ## Run
 
